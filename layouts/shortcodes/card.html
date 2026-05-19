@@ -1,0 +1,4 @@
+<a class="card-link" href="{{ .Get "link" }}">
+  <h2>{{ .Get "title" }}</h2>
+  {{ with .Get "subtitle" }}<p>{{ . }}</p>{{ end }}
+</a>

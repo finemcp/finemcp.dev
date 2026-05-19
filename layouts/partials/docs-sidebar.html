@@ -1,0 +1,35 @@
+{{ $versionRoot := .Site.GetPage "docs" }}
+
+<aside class="docs-sidebar">
+  <div class="docs-sidebar-header">
+    <span class="label">Docs</span>
+  </div>
+
+  <nav class="docs-sidebar-nav">
+    {{ if $versionRoot }}
+      {{ range $versionRoot.Sections.ByWeight }}
+        {{ $sec := . }}
+        {{/* A section is "active" if the current page is in it or is the section itself */}}
+        {{ $isActive := or (eq $sec $.CurrentSection) ($sec.IsAncestor $) }}
+        {{/* Is the current page the section index page itself? */}}
+        {{ $onSectionPage := and (eq $.Kind "section") (eq $sec $) }}
+        <div class="sidebar-group{{ if $isActive }} is-open{{ end }}">
+          <a href="{{ $sec.RelPermalink }}"
+            class="docs-sidebar-link sidebar-section-title{{ if $isActive }}{{ if $onSectionPage }} is-active{{ else }} is-section-active{{ end }}{{ end }}">
+            {{ $sec.LinkTitle }}
+          </a>
+          {{ if $isActive }}
+            <div class="sidebar-children">
+              {{ range $sec.Pages.ByWeight }}
+                <a href="{{ .RelPermalink }}"
+                  class="docs-sidebar-link sidebar-child-link{{ if eq . $ }} is-active{{ end }}">
+                  {{ .LinkTitle }}
+                </a>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </nav>
+</aside>

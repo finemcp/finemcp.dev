@@ -1,0 +1,56 @@
+{{ define "title" }}{{ .Title }} &mdash; Blog &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="blog-page">
+  <div class="blog-page-inner">
+
+    {{/* Main article */}}
+    <article class="blog-article">
+      <div class="blog-single-topnav">
+        <a href="/blog/" class="blog-back-link">← All posts</a>
+      </div>
+      <header class="blog-single-header">
+        <div class="blog-single-meta">
+          {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{ end }}
+          {{ with .ReadingTime }}&middot; {{ . }} min read{{ end }}
+        </div>
+        <h1 class="blog-single-title">{{ .Title }}</h1>
+        {{ with .Description }}
+          <p class="blog-single-desc">{{ . }}</p>
+        {{ end }}
+        {{ with .Params.tags }}
+          <div class="blog-post-tags">
+            {{ range . }}<span class="blog-tag">{{ . }}</span>{{ end }}
+          </div>
+        {{ end }}
+      </header>
+      <div class="blog-single-body">
+        {{ .Content }}
+      </div>
+      <footer class="blog-single-footer">
+        <a href="/blog/" class="blog-back-link">← All posts</a>
+      </footer>
+    </article>
+
+    {{/* Right sidebar: all posts */}}
+    <aside class="blog-sidebar">
+      <div class="blog-sidebar-inner">
+        <p class="blog-sidebar-label">All Posts</p>
+        <nav class="blog-sidebar-list">
+          {{ $current := . }}
+          {{ range .Site.RegularPages.ByDate.Reverse }}
+            {{ if eq .Section "blog" }}
+              <a href="{{ .RelPermalink }}"
+                 class="blog-sidebar-item{{ if eq . $current }} is-current{{ end }}">
+                <span class="blog-sidebar-item-title">{{ .Title }}</span>
+                <span class="blog-sidebar-item-date">{{ .Date.Format "Jan 2006" }}</span>
+              </a>
+            {{ end }}
+          {{ end }}
+        </nav>
+      </div>
+    </aside>
+
+  </div>
+</div>
+{{ end }}
+

@@ -1,0 +1,74 @@
+{{ define "title" }}{{ .Title }} &mdash; Tutorials &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="tutorial-layout">
+
+  {{/* Left sidebar: list of all tutorials */}}
+  <aside class="tutorial-sidebar">
+    <div class="tutorial-sidebar-header">
+      <a href="/tutorials/" class="tutorial-sidebar-back">← All Tutorials</a>
+    </div>
+    <nav class="tutorial-sidebar-nav">
+      {{ $section := .CurrentSection }}
+      {{ range $section.Pages.ByWeight }}
+        <a href="{{ .RelPermalink }}"
+           class="tutorial-sidebar-link{{ if eq . $ }} is-active{{ end }}">
+          <span class="tutorial-sidebar-num">{{ .Params.tutorial_number }}</span>
+          {{ .Title }}
+        </a>
+      {{ end }}
+    </nav>
+  </aside>
+
+  {{/* Main content */}}
+  <article class="tutorial-content">
+    <div class="tutorial-content-header">
+      <span class="tutorial-badge">Tutorial {{ .Params.tutorial_number }}</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+      {{ with .Params.source_dir }}
+        <a class="tutorial-source-link"
+           href="https://github.com/finemcp/examples/tree/main/{{ . }}"
+           target="_blank" rel="noreferrer">
+          View source on GitHub →
+        </a>
+      {{ end }}
+    </div>
+    <div class="tutorial-body">
+      {{ .Content }}
+    </div>
+
+    {{/* Prev / Next navigation */}}
+    {{ $pages := $section.Pages.ByWeight }}
+    {{ $current := . }}
+    {{ $prev := "" }}{{ $next := "" }}
+    {{ range $i, $p := $pages }}
+      {{ if eq $p $current }}
+        {{ if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+        {{ if lt $i (sub (len $pages) 1) }}{{ $next = index $pages (add $i 1) }}{{ end }}
+      {{ end }}
+    {{ end }}
+    <nav class="tutorial-pagination">
+      {{ if $prev }}
+        <a href="{{ $prev.RelPermalink }}" class="tutorial-pager tutorial-pager-prev">
+          <span class="pager-label">← Previous</span>
+          <span class="pager-title">{{ $prev.Title }}</span>
+        </a>
+      {{ else }}<div></div>{{ end }}
+      {{ if $next }}
+        <a href="{{ $next.RelPermalink }}" class="tutorial-pager tutorial-pager-next">
+          <span class="pager-label">Next →</span>
+          <span class="pager-title">{{ $next.Title }}</span>
+        </a>
+      {{ else }}<div></div>{{ end }}
+    </nav>
+  </article>
+
+  {{/* Right TOC */}}
+  <aside class="docs-toc">
+    <p class="label">On this page</p>
+    <nav class="docs-toc-nav">
+      {{ .TableOfContents }}
+    </nav>
+  </aside>
+</div>
+{{ end }}

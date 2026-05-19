@@ -1,0 +1,28 @@
+{{ define "title" }}Releases &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="releases-index-hero">
+  <div class="releases-index-hero-inner">
+    <h1>Releases</h1>
+    <p>Release notes and changelog for every FineMCP version.</p>
+  </div>
+</div>
+
+<div class="releases-index">
+  <div class="releases-index-inner">
+    {{ range .Pages.ByDate.Reverse }}
+      <article class="releases-index-item">
+        <div class="releases-index-meta">
+          <a href="{{ .RelPermalink }}" class="releases-index-version">{{ .Title }}</a>
+          {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2, 2006" }}</time>{{ end }}
+        </div>
+        {{ with .Description }}
+          <p class="releases-index-desc">{{ . }}</p>
+        {{ end }}
+        <a href="{{ .RelPermalink }}" class="releases-index-link">Read changelog &rarr;</a>
+      </article>
+    {{ else }}
+      <p class="releases-empty">No releases yet — check back soon.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

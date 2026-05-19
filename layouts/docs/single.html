@@ -1,0 +1,25 @@
+{{ define "title" }}{{ .Title }} &mdash; Docs &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="docs-layout">
+  {{ partial "docs-sidebar.html" . }}
+
+  <article class="docs-content">
+    <header class="docs-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="description">{{ . }}</p>
+      {{ end }}
+    </header>
+    <div class="docs-body">
+      {{ .Content }}
+    </div>
+  </article>
+
+  <aside class="docs-toc">
+    <p class="label">On this page</p>
+    <nav class="docs-toc-nav">
+      {{ .TableOfContents }}
+    </nav>
+  </aside>
+</div>
+{{ end }}

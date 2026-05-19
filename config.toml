@@ -1,0 +1,32 @@
+baseURL = "https://finemcp.dev/"
+languageCode = "en-us"
+title = "FineMCP"
+
+defaultContentLanguage = "en"
+
+# Docs content is mounted directly at /docs/ — no versioning prefix.
+# Relref paths in the docs source are root-relative (/middleware, /concepts/…)
+# and may not resolve; treat as warnings so the build succeeds.
+refLinksErrorLevel = "warning"
+
+taxonomies = { category = "categories", tag = "tags" }
+
+[markup.highlight]
+  style = "github"
+  noClasses = true
+
+[params]
+  description = "Production-ready Go framework for building scalable, observable, and secure MCP systems."
+  logoText = "FineMCP"
+  tagline = "Build real MCP systems, not just tools."
+  githubURL  = "https://github.com/finemcp/finemcp"
+  slackURL   = "https://finemcp.slack.com"
+  sponsorURL = "https://github.com/sponsors/finemcp"
+
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "../finemcp/docs"
+    target = "content/docs"

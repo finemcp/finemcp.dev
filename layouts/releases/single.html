@@ -1,0 +1,69 @@
+{{ define "title" }}{{ .Title }} &mdash; Releases &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="releases-layout">
+
+  {{/* ── Left sidebar: version list ── */}}
+  <aside class="releases-sidebar">
+    <div class="releases-sidebar-sticky">
+      <p class="releases-sidebar-label">All Releases</p>
+      <nav class="releases-sidebar-nav">
+        {{ $current := . }}
+        {{ $section := .Site.GetPage "releases" }}
+        {{ if $section }}
+          {{ range $section.Pages.ByDate.Reverse }}
+            <a href="{{ .RelPermalink }}"
+               class="releases-sidebar-item{{ if eq . $current }} is-current{{ end }}">
+              <span class="releases-sidebar-ver">{{ .Title }}</span>
+              <span class="releases-sidebar-dt">{{ .Date.Format "Jan 2, 2006" }}</span>
+            </a>
+          {{ end }}
+        {{ end }}
+      </nav>
+    </div>
+  </aside>
+
+  {{/* ── Center: release content ── */}}
+  <article class="releases-content">
+    <header class="releases-header">
+      <div class="releases-header-top">
+        <h1 class="releases-title">{{ .Title }}</h1>
+        {{ with .Date }}
+          <time class="releases-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2, 2006" }}</time>
+        {{ end }}
+      </div>
+      {{ with .Description }}
+        <p class="releases-description">{{ . }}</p>
+      {{ end }}
+    </header>
+    <div class="releases-body">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{/* ── Right sidebar: in-page TOC ── */}}
+  <aside class="releases-toc">
+    <p class="label">On this page</p>
+    <nav class="releases-toc-nav">
+      {{ .TableOfContents }}
+    </nav>
+  </aside>
+
+</div>
+
+<script>
+/* Auto-tag h2 headings by change category for color-coded left border */
+(function () {
+  document.querySelectorAll('.releases-body h2').forEach(function (h) {
+    var t = h.textContent.trim();
+    var type;
+    if      (/feature|new\b|add/i.test(t))              type = 'feature';
+    else if (/fix|bug|patch/i.test(t))                  type = 'fix';
+    else if (/break|remov/i.test(t))                    type = 'breaking';
+    else if (/improve|perf|optim|enhanc/i.test(t))      type = 'improvement';
+    else if (/deprecat/i.test(t))                       type = 'deprecated';
+    else if (/known|issue/i.test(t))                    type = 'known';
+    if (type) { h.dataset.changeType = type; }
+  });
+})();
+</script>
+{{ end }}

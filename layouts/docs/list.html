@@ -1,0 +1,44 @@
+{{ define "title" }}{{ .Title }} &mdash; Docs &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+{{- $dest := "" -}}
+{{- $pages := .Pages.ByWeight -}}
+{{- $sections := .Sections.ByWeight -}}
+{{- if $pages -}}
+  {{- $dest = (index $pages 0).RelPermalink -}}
+{{- else if $sections -}}
+  {{- $firstSec := index $sections 0 -}}
+  {{- $secPages := $firstSec.Pages.ByWeight -}}
+  {{- if $secPages -}}
+    {{- $dest = (index $secPages 0).RelPermalink -}}
+  {{- else -}}
+    {{- $dest = $firstSec.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $dest -}}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ $dest }}">
+  <script>window.location.replace("{{ $dest }}");</script>
+</head>
+<body></body>
+</html>
+{{- else -}}
+{{/* No children — render content page with full docs layout (e.g. /docs/testing/) */}}
+<div class="docs-layout">
+  {{ partial "docs-sidebar.html" . }}
+  <article class="docs-content">
+    <header class="docs-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+    </header>
+    <div class="docs-body">
+      {{ .Content }}
+    </div>
+  </article>
+  <aside class="docs-toc"></aside>
+</div>
+{{- end -}}
+{{ end }}

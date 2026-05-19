@@ -1,0 +1,32 @@
+{{ define "title" }}Blog &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <h1>Blog</h1>
+    <p>News, releases, and deep dives from the FineMCP project.</p>
+  </div>
+</div>
+<div class="blog-index">
+  <div class="blog-index-inner">
+    {{ range .Pages.ByDate.Reverse }}
+      <article class="blog-post-row">
+        <div class="blog-post-meta">
+          {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{ end }}
+          {{ with .ReadingTime }}&middot; {{ . }} min read{{ end }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="blog-post-title">{{ .Title }}</a>
+        {{ with .Description }}
+          <p class="blog-post-desc">{{ . }}</p>
+        {{ end }}
+        {{ with .Params.tags }}
+          <div class="blog-post-tags">
+            {{ range . }}<span class="blog-tag">{{ . }}</span>{{ end }}
+          </div>
+        {{ end }}
+      </article>
+    {{ else }}
+      <p class="blog-empty">No posts yet — check back soon.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

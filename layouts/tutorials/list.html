@@ -1,0 +1,23 @@
+{{ define "title" }}Tutorials &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="tutorials-hero">
+  <div class="tutorials-hero-inner">
+    <h1>Tutorials</h1>
+    <p>Hands-on examples for building MCP systems with finemcp. Each tutorial is a self-contained runnable example from the <a href="{{ .Site.Params.githubURL }}/tree/main/examples" target="_blank" rel="noreferrer">examples repository</a>.</p>
+  </div>
+</div>
+
+<div class="tutorials-grid-wrap">
+  <div class="tutorials-grid">
+    {{ range .Pages.ByWeight }}
+      <a href="{{ .RelPermalink }}" class="tutorial-card">
+        <span class="tutorial-number">{{ .Params.tutorial_number }}</span>
+        <div class="tutorial-card-body">
+          <h2>{{ .Title }}</h2>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </div>
+      </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

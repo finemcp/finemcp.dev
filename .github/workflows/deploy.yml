@@ -1,0 +1,76 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out both repos side-by-side so relative paths match local dev:
+      #   web/      ← this repo
+      #   finemcp/  ← main Go repo (docs/ + examples/ live here)
+      # From web/, ../finemcp resolves correctly in both environments.
+      - name: Checkout website
+        uses: actions/checkout@v4
+        with:
+          path: web
+          fetch-depth: 0
+
+      - name: Checkout finemcp repo
+        uses: actions/checkout@v4
+        with:
+          repository: finemcp/finemcp
+          path: finemcp
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.157.0"
+          extended: true
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Sync tutorials from finemcp/examples
+        working-directory: web
+        run: python3 scripts/sync-tutorials.py
+
+      - name: Sync releases from GitHub
+        working-directory: web
+        run: python3 scripts/sync-releases.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
+        working-directory: web
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/public/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

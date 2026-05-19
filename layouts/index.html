@@ -1,0 +1,332 @@
+{{ define "title" }}FineMCP — Production-ready MCP servers in Go{{ end }}
+
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-inner">
+    <img src="/images/finemcp-logo.png" alt="FineMCP" class="hero-logo" />
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 0L8.5 4.5L13 6L8.5 7.5L7 12L5.5 7.5L1 6L5.5 4.5L7 0Z" fill="currentColor"/>
+      </svg>
+      <span>MCP Spec 2025-11-25</span>
+    </div>
+    <h1 class="hero-title">Build real MCP systems,<br/>not just tools</h1>
+    <p class="hero-subtitle">
+      Production-ready Go framework with security, observability, and resilience built in from day one.
+    </p>
+    <div class="hero-actions">
+      <a href="/docs/getting-started/" class="btn-primary">Get Started</a>
+      <a href="{{ .Site.Params.githubURL }}" class="btn-secondary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        <span>View on GitHub</span>
+      </a>
+    </div>
+    <div class="hero-decoration"></div>
+  </div>
+</section>
+
+<section class="lp-stats">
+  <div class="lp-stats-inner">
+    <div class="lp-stat-item">
+      <div class="lp-stat-number">16</div>
+      <div class="lp-stat-label">Production Middleware</div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-number">5</div>
+      <div class="lp-stat-label">Transport Protocols</div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-number">100%</div>
+      <div class="lp-stat-label">MCP Compliant</div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-number">MIT</div>
+      <div class="lp-stat-label">Open Source</div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section lp-why">
+  <div class="lp-section-inner">
+    <div class="lp-section-label">Why FineMCP</div>
+    <h2 class="lp-section-title">Production systems need more than protocol primitives</h2>
+    <p class="lp-section-subtitle">Most MCP libraries hand you protocol primitives and leave the rest to you. FineMCP treats the server as a system—security, observability, resilience, and correctness are built in from day one.</p>
+
+    <div class="lp-why-grid">
+      <div class="lp-why-card">
+        <div class="lp-why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3 class="lp-why-title">Security</h3>
+        <p class="lp-why-text">RBAC per tool, token-bucket rate limiting, JSON Schema input validation, and execution sandbox. Control who can call what, when, and how.</p>
+      </div>
+      <div class="lp-why-card">
+        <div class="lp-why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+          </svg>
+        </div>
+        <h3 class="lp-why-title">Observability</h3>
+        <p class="lp-why-text">OpenTelemetry traces and metrics, structured logging, audit logs, and cost tracking. Know exactly what's happening in production.</p>
+      </div>
+      <div class="lp-why-card">
+        <div class="lp-why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="lp-why-title">Resilience</h3>
+        <p class="lp-why-text">Circuit breaker, retry with exponential backoff, and panic recovery. Handle failures gracefully and keep your system running.</p>
+      </div>
+      <div class="lp-why-card">
+        <div class="lp-why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="lp-why-title">Correctness</h3>
+        <p class="lp-why-text">Auto JSON Schema generation, typed generic handlers, and compile-time safety. Catch errors before they reach production.</p>
+      </div>
+      <div class="lp-why-card">
+        <div class="lp-why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"/>
+            <polyline points="2.32 6.16 12 11 21.68 6.16"/>
+            <line x1="12" y1="22.76" x2="12" y2="11"/>
+          </svg>
+        </div>
+        <h3 class="lp-why-title">Testability</h3>
+        <p class="lp-why-text">In-process test harness with assertion helpers and golden file diffing. Test your MCP servers without any network setup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section lp-quickstart">
+  <div class="lp-section-inner">
+    <div class="lp-section-label">Quick Start</div>
+    <h2 class="lp-section-title">Running in minutes, not days</h2>
+    <p class="lp-section-subtitle">Install FineMCP and build your first MCP server with type-safe handlers, automatic schema generation, and production middleware.</p>
+
+    <div class="lp-quickstart-install">
+      <span class="lp-quickstart-prompt">$</span>
+      <code>go get github.com/finemcp/finemcp</code>
+    </div>
+
+    <div class="lp-quickstart-code">
+<pre><code class="language-go">package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "github.com/finemcp/finemcp"
+    "github.com/finemcp/finemcp/middleware"
+)
+
+type GreetInput struct {
+    Name string `json:"name" description:"Name to greet"`
+}
+
+func main() {
+    s := finemcp.NewServer("myapp", "1.0")
+
+    s.Use(middleware.Recovery())
+    s.Use(middleware.Logging(finemcp.NopLogger))
+
+    tool, _ := finemcp.NewTypedTool("greet",
+        func(_ context.Context, in GreetInput) (string, error) {
+            return fmt.Sprintf("Hello, %s!", in.Name), nil
+        },
+        finemcp.WithDescription("Greets someone"),
+    )
+    s.RegisterTool(tool)
+
+    log.Fatal(s.StartHTTP(":8080"))
+}</code></pre>
+    </div>
+
+    <div class="lp-quickstart-cta">
+      <a href="/docs/getting-started/" class="btn-primary">Read the Getting Started Guide</a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section lp-middleware">
+  <div class="lp-section-inner">
+    <div class="lp-section-label">Middleware</div>
+    <h2 class="lp-section-title">16 production-ready middleware</h2>
+    <p class="lp-section-subtitle">Compose the exact stack you need. Every tool call flows through an ordered, composable chain. Custom middleware is a single <code>func(ToolHandler) ToolHandler</code>.</p>
+
+    <div class="lp-middleware-grid">
+      <div class="lp-middleware-group">
+        <h3 class="lp-middleware-group-title">Security</h3>
+        <ul class="lp-middleware-list">
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">RBAC</span>
+            <span class="lp-middleware-desc">Per-tool role-based access control</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">RateLimit</span>
+            <span class="lp-middleware-desc">Token-bucket, per-tool and per-user</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Validation</span>
+            <span class="lp-middleware-desc">JSON Schema input validation</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Sandbox</span>
+            <span class="lp-middleware-desc">Execution timeout and output size limits</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Auth</span>
+            <span class="lp-middleware-desc">Bearer token and API key validation</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">MultiTenant</span>
+            <span class="lp-middleware-desc">Per-tenant visibility, limits, and policies</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lp-middleware-group">
+        <h3 class="lp-middleware-group-title">Observability</h3>
+        <ul class="lp-middleware-list">
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Logging</span>
+            <span class="lp-middleware-desc">Request ID, tool name, duration</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">OTel</span>
+            <span class="lp-middleware-desc">OpenTelemetry spans, counters, histograms</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">AuditLog</span>
+            <span class="lp-middleware-desc">SHA-256 input hashing, compliance trail</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">CostTracking</span>
+            <span class="lp-middleware-desc">Per-call cost with custom cost functions</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lp-middleware-group">
+        <h3 class="lp-middleware-group-title">Resilience</h3>
+        <ul class="lp-middleware-list">
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Recovery</span>
+            <span class="lp-middleware-desc">Catches panics, returns clean JSON-RPC error</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">CircuitBreaker</span>
+            <span class="lp-middleware-desc">Three-state machine with configurable thresholds</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Retry</span>
+            <span class="lp-middleware-desc">Exponential backoff with jitter</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lp-middleware-group">
+        <h3 class="lp-middleware-group-title">Developer</h3>
+        <ul class="lp-middleware-list">
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Async</span>
+            <span class="lp-middleware-desc">Background job execution with state machine</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Caching</span>
+            <span class="lp-middleware-desc">LRU result cache with TTL and input hash keying</span>
+          </li>
+          <li class="lp-middleware-item">
+            <span class="lp-middleware-name">Simulation</span>
+            <span class="lp-middleware-desc">Dry-run mode via <code>_meta.dryRun: true</code></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section lp-transports">
+  <div class="lp-section-inner">
+    <div class="lp-section-label">Transports</div>
+    <h2 class="lp-section-title">5 transports for every deployment</h2>
+    <p class="lp-section-subtitle">Run your MCP server anywhere—from a local Claude Desktop plugin to a cloud-native microservice.</p>
+
+    <div class="lp-transports-grid">
+      <div class="lp-transport-card">
+        <div class="lp-transport-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+        </div>
+        <h3 class="lp-transport-title">Stdio</h3>
+        <p class="lp-transport-text">Newline-delimited JSON-RPC with signal handling. The standard for Claude Desktop and local tooling.</p>
+      </div>
+      <div class="lp-transport-card">
+        <div class="lp-transport-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3 class="lp-transport-title">HTTP</h3>
+        <p class="lp-transport-text">Embeddable <code>http.Handler</code>. Drop into any existing Go HTTP server. 204 responses for notifications.</p>
+      </div>
+      <div class="lp-transport-card">
+        <div class="lp-transport-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3 class="lp-transport-title">SSE</h3>
+        <p class="lp-transport-text">Server-Sent Events with session management, keepalive, backpressure, and auto-cleanup.</p>
+      </div>
+      <div class="lp-transport-card">
+        <div class="lp-transport-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8l5-5-5-5"/>
+            <line x1="21" y1="3" x2="9" y2="3"/>
+            <path d="M8 16l-5 5 5 5"/>
+            <line x1="3" y1="21" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <h3 class="lp-transport-title">Streamable HTTP</h3>
+        <p class="lp-transport-text">MCP spec 2025-03-26+ primary transport with <code>Mcp-Session-Id</code> and resumability.</p>
+      </div>
+      <div class="lp-transport-card">
+        <div class="lp-transport-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </div>
+        <h3 class="lp-transport-title">WebSocket</h3>
+        <p class="lp-transport-text">Full-duplex with ping/pong and graceful close. Low-latency for interactive applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section lp-cta">
+  <div class="lp-cta-inner">
+    <h2 class="lp-cta-title">Ready to build production MCP servers?</h2>
+    <p class="lp-cta-text">Install FineMCP and go from zero to production-ready MCP server in minutes.<br/>Full MCP spec compliance, compile-time type safety, and battle-tested middleware included.</p>
+    <div class="lp-cta-actions">
+      <a href="/docs/getting-started/" class="btn-primary">Get Started</a>
+      <a href="/docs/" class="btn-secondary">Read the Docs</a>
+    </div>
+  </div>
+</section>
+{{ end }}

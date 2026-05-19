@@ -1,0 +1,81 @@
+{{ define "title" }}Documentation &mdash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+
+<div class="docs-landing-hero">
+  <div class="docs-landing-hero-inner">
+    <div class="docs-landing-hero-text">
+      <div class="docs-landing-version-bar">
+        <span class="docs-landing-label">Documentation</span>
+      </div>
+      <h1>finemcp</h1>
+      <p>A batteries-included Go framework for building <a href="https://modelcontextprotocol.io" target="_blank" rel="noreferrer">Model Context Protocol</a> servers &mdash; tools, resources, prompts, streaming, middleware, and more.</p>
+      <div class="docs-landing-cta">
+        {{ range .Sections.ByWeight }}
+          {{ if eq .LinkTitle "Getting Started" }}
+            <a href="{{ .RelPermalink }}" class="btn-get-started">Get Started</a>
+          {{ end }}
+        {{ end }}
+        <a href="{{ .Site.Params.githubURL }}" target="_blank" rel="noreferrer" class="btn-outline">GitHub</a>
+      </div>
+    </div>
+    <div class="docs-landing-hero-code">
+      <div class="code-window">
+        <div class="code-window-bar">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="code-window-title">main.go</span>
+        </div>
+        <pre class="code-window-body"><code><span class="cw-kw">package</span> main
+
+<span class="cw-kw">import</span> (
+    <span class="cw-str">"context"</span>
+    <span class="cw-str">"log"</span>
+    <span class="cw-str">"github.com/finemcp/finemcp"</span>
+    <span class="cw-str">"github.com/finemcp/finemcp/transport"</span>
+)
+
+<span class="cw-kw">func</span> <span class="cw-fn">main</span>() {
+    s := finemcp.<span class="cw-fn">NewServer</span>(<span class="cw-str">"my-server"</span>, <span class="cw-str">"1.0.0"</span>)
+
+    tool, _ := finemcp.<span class="cw-fn">NewTool</span>(<span class="cw-str">"hello"</span>,
+        <span class="cw-kw">func</span>(ctx context.Context, _ []<span class="cw-kw">byte</span>) ([]<span class="cw-kw">byte</span>, error) {
+            <span class="cw-kw">return</span> []<span class="cw-kw">byte</span>(<span class="cw-str">"Hello, World!"</span>), <span class="cw-kw">nil</span>
+        },
+        finemcp.<span class="cw-fn">WithDescription</span>(<span class="cw-str">"Say hello"</span>),
+    )
+    s.<span class="cw-fn">RegisterTool</span>(tool)
+    log.<span class="cw-fn">Fatal</span>(transport.<span class="cw-fn">StartHTTP</span>(s, <span class="cw-str">":8080"</span>))
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="docs-landing-sections">
+  <div class="docs-landing-sections-inner">
+    <h2>Browse the Docs</h2>
+    <div class="docs-section-grid">
+      {{ range .Sections.ByWeight }}
+        <a href="{{ .RelPermalink }}" class="docs-section-card">
+          <div class="docs-section-card-icon">
+            {{- if eq .LinkTitle "Getting Started" -}}🚀
+            {{- else if eq .LinkTitle "Concepts" -}}📐
+            {{- else if eq .LinkTitle "Features" -}}⚡
+            {{- else if eq .LinkTitle "Middleware" -}}🔧
+            {{- else if eq .LinkTitle "Testing" -}}🧪
+            {{- else if eq .LinkTitle "Deployment" -}}🚢
+            {{- else -}}📄
+            {{- end -}}
+          </div>
+          <div class="docs-section-card-body">
+            <h3>{{ .LinkTitle }}</h3>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+{{ end }}
