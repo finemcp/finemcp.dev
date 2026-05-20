@@ -1,7 +1,7 @@
 ---
 title: "Middleware Is the Difference Between a Demo and a Production MCP Server"
 description: "A practical look at how FineMCP's middleware system works, why it matters, and how to compose it for real workloads."
-date: 2026-05-19
+date: 2026-05-20 14:01:00
 tags: ["middleware", "production", "deep-dive"]
 ---
 

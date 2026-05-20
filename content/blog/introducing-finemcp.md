@@ -1,7 +1,7 @@
 ---
 title: "Introducing FineMCP: Production-Ready MCP Servers in Go"
 description: "Why we built FineMCP, what makes it different from other MCP libraries, and where we're taking it."
-date: 2026-05-12
+date: 2026-05-20 06:10:00
 tags: ["announcement", "open-source"]
 ---
 

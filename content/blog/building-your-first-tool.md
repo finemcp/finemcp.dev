@@ -1,7 +1,7 @@
 ---
 title: "FineMCP Public Beta is Open"
 description: "We're opening FineMCP to the public for beta testing. Here's what's ready, what's rough, and how you can help shape it."
-date: 2026-05-16
+date: 2026-05-20 14:00:00
 tags: ["beta", "announcement", "release"]
 ---
 
