@@ -1674,7 +1674,7 @@ pre {
   background-color: var(--light-code-bg) !important;
   color: var(--color-ink) !important;
   border-radius: 10px;
-  margin: 0;
+  margin: 0 0 5px;
 }
 
 /* ==========================================================================

@@ -27,7 +27,7 @@
       {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
       {{ with .Params.source_dir }}
         <a class="tutorial-source-link"
-           href="https://github.com/finemcp/examples/tree/main/{{ . }}"
+           href="{{ $.Site.Params.githubURL }}/tree/main/examples/{{ . }}"
            target="_blank" rel="noreferrer">
           View source on GitHub →
         </a>
