@@ -27,8 +27,9 @@ help:
 dev: sync-tutorials
 	$(HUGO) serve $(HUGO_ARGS)
 
-## Sync example READMEs from finemcp/finemcp/examples/ into content/learn/
+## Sync example READMEs from ../finemcp/examples/ into content/learn/
 sync-tutorials:
+	@mkdir -p content/learn
 	python3 scripts/sync-tutorials.py
 
 ## Fetch release notes from GitHub Releases into content/releases/
