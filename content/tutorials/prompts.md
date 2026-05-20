@@ -2,7 +2,7 @@
 title: "Prompts"
 description: "Demonstrates the MCP prompt system for reusable prompt templates with arguments and auto-completion."
 weight: 5
-url: "/tutorials/prompts/"
+url: "/learn/prompts/"
 tutorial_number: 5
 source_dir: "05-prompts"
 ---

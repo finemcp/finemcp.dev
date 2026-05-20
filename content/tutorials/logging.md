@@ -2,7 +2,7 @@
 title: "Logging"
 description: "Demonstrates the MCP server logging API for sending **structured log messages** to the client."
 weight: 10
-url: "/tutorials/logging/"
+url: "/learn/logging/"
 tutorial_number: 10
 source_dir: "10-logging"
 ---

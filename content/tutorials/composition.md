@@ -2,7 +2,7 @@
 title: "Composition"
 description: "Demonstrates **Pipeline** and **Parallel** composition patterns for combining multiple tool handlers."
 weight: 16
-url: "/tutorials/composition/"
+url: "/learn/composition/"
 tutorial_number: 16
 source_dir: "16-composition"
 ---

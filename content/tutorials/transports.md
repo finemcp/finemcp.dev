@@ -2,7 +2,7 @@
 title: "Transports"
 description: "Demonstrates the five transport mechanisms available in finemcp for client-server communication."
 weight: 12
-url: "/tutorials/transports/"
+url: "/learn/transports/"
 tutorial_number: 12
 source_dir: "12-transports"
 ---

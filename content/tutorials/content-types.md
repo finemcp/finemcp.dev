@@ -2,7 +2,7 @@
 title: "Content Types"
 description: "Demonstrates all MCP content types: **text**, **image**, and **embedded resource**."
 weight: 15
-url: "/tutorials/content-types/"
+url: "/learn/content-types/"
 tutorial_number: 15
 source_dir: "15-content-types"
 ---

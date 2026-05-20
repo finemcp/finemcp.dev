@@ -2,7 +2,7 @@
 title: "Testing"
 description: "Demonstrates in-process MCP server testing using the mcptest package — no HTTP, no network."
 weight: 14
-url: "/tutorials/testing/"
+url: "/learn/testing/"
 tutorial_number: 14
 source_dir: "14-testing"
 ---

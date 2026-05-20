@@ -2,7 +2,7 @@
 title: "Progress"
 description: "Demonstrates how tools report **incremental progress** to the client during long-running operations."
 weight: 9
-url: "/tutorials/progress/"
+url: "/learn/progress/"
 tutorial_number: 9
 source_dir: "09-progress"
 ---

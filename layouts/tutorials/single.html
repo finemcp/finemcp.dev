@@ -1,11 +1,11 @@
-{{ define "title" }}{{ .Title }} &mdash; Tutorials &mdash; {{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ .Title }} &mdash; Learn &mdash; {{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <div class="tutorial-layout">
 
   {{/* Left sidebar: list of all tutorials */}}
   <aside class="tutorial-sidebar">
     <div class="tutorial-sidebar-header">
-      <a href="/tutorials/" class="tutorial-sidebar-back">← All Tutorials</a>
+      <a href="/learn/" class="tutorial-sidebar-back">← All Tutorials</a>
     </div>
     <nav class="tutorial-sidebar-nav">
       {{ $section := .CurrentSection }}

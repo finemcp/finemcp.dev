@@ -153,4 +153,4 @@ Wrap `next`, do work before and/or after, pass the context through. The full mid
 
 The difference between a quick MCP prototype and a server you'd bet production traffic on is almost entirely in this layer. FineMCP gives you that layer ready to use, with sensible defaults, and with enough flexibility to replace any piece with your own implementation.
 
-If you want to see all of this in action, the [Middleware tutorial](/tutorials/middleware/) walks through a complete example with tracing and rate limiting running together.
+If you want to see all of this in action, the [Middleware tutorial](/learn/middleware/) walks through a complete example with tracing and rate limiting running together.

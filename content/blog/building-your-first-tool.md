@@ -92,7 +92,7 @@ The most valuable thing you can do right now is **build something real with it**
 Open a GitHub issue for bugs. Start a discussion for API questions. If something feels unnecessarily complicated, that's signal worth sharing — we want the happy path to feel obvious.
 
 → [Read the docs](/docs/)  
-→ [Browse the tutorials](/tutorials/)  
+→ [Browse the tutorials](/learn/)  
 → [Open an issue](https://github.com/finemcp/finemcp/issues)  
 → [Join Slack](https://finemcp.slack.com)
 

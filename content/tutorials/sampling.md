@@ -2,7 +2,7 @@
 title: "Sampling"
 description: "Demonstrates the MCP sampling API for **server-initiated LLM requests** — where the server asks the *client* to perform LLM inference."
 weight: 6
-url: "/tutorials/sampling/"
+url: "/learn/sampling/"
 tutorial_number: 6
 source_dir: "06-sampling"
 ---

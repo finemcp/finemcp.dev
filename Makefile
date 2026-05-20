@@ -27,7 +27,7 @@ help:
 dev: sync-tutorials
 	$(HUGO) serve $(HUGO_ARGS)
 
-## Sync example READMEs from finemcp/finemcp/examples/ into content/tutorials/
+## Sync example READMEs from finemcp/finemcp/examples/ into content/learn/
 sync-tutorials:
 	python3 scripts/sync-tutorials.py
 

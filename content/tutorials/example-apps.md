@@ -2,7 +2,7 @@
 title: "Example Apps"
 description: "Real-world style MCP servers you can connect to Claude Desktop or any MCP client."
 weight: 18
-url: "/tutorials/example-apps/"
+url: "/learn/example-apps/"
 tutorial_number: 18
 source_dir: "18-example-apps"
 ---

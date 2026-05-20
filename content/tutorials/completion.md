@@ -2,7 +2,7 @@
 title: "Completion"
 description: "Demonstrates the MCP auto-completion system for both **prompts** and **resource templates**."
 weight: 11
-url: "/tutorials/completion/"
+url: "/learn/completion/"
 tutorial_number: 11
 source_dir: "11-completion"
 ---

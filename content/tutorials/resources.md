@@ -2,7 +2,7 @@
 title: "Resources"
 description: "Demonstrates how to expose data as MCP resources that clients can read and subscribe to."
 weight: 4
-url: "/tutorials/resources/"
+url: "/learn/resources/"
 tutorial_number: 4
 source_dir: "04-resources"
 ---

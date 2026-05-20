@@ -13,7 +13,7 @@ This repo is the **website only**. Docs and examples live in the main Go repo ([
 | Content | Source |
 |---|---|
 | `/docs/` | `finemcp/finemcp/docs/` (Hugo mount) |
-| `/tutorials/` | `finemcp/finemcp/examples/*/README.md` (sync script) |
+| `/learn/` | `finemcp/finemcp/examples/*/README.md` (sync script) |
 | `/blog/` | `content/blog/` in this repo |
 | `/releases/` | GitHub Releases API (sync script) |
 
@@ -46,7 +46,7 @@ git clone https://github.com/finemcp/website.git path/to/workspace/web
 
 cd path/to/workspace/web
 
-# Sync tutorial content from finemcp/examples/ into content/tutorials/
+# Sync tutorial content from finemcp/examples/ into content/learn/
 make sync-tutorials
 
 # Start the dev server
@@ -91,13 +91,13 @@ Tutorials are generated from the `README.md` of each numbered example directory 
 ```
 web/
 ├── config.toml                  # site config, Hugo mounts, params
-├── content/                     # blog posts, releases (generated), tutorials (generated)
+├── content/                     # blog posts, releases (generated), learn (generated)
 ├── layouts/                     # Hugo templates
 │   ├── index.html               # landing page
 │   ├── blog/                    # blog list + single post
 │   ├── docs/                    # docs single page
 │   ├── docsroot/                # /docs/ index
-│   ├── tutorials/               # tutorial list + single page
+│   ├── learn/                   # learn list + single page
 │   ├── releases/                # changelog list + single page
 │   ├── shortcodes/              # callout, card, cards
 │   └── partials/                # header, footer, docs-sidebar
@@ -105,7 +105,7 @@ web/
 │   ├── css/main.css             # single stylesheet
 │   └── images/finemcp-logo.png  # logo
 ├── scripts/
-│   ├── sync-tutorials.py        # generates content/tutorials/ from finemcp/examples/
+│   ├── sync-tutorials.py        # generates content/learn/ from finemcp/examples/
 │   ├── sync-releases.py         # generates content/releases/ from GitHub API
 │   └── check_links.py           # crawl localhost:1313 and report broken links
 ├── .github/

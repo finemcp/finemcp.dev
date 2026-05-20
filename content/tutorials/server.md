@@ -2,7 +2,7 @@
 title: "Server"
 description: "Demonstrates how to create and configure an MCP server using finemcp.NewServer."
 weight: 1
-url: "/tutorials/server/"
+url: "/learn/server/"
 tutorial_number: 1
 source_dir: "01-server"
 ---

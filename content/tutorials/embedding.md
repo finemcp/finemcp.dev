@@ -2,7 +2,7 @@
 title: "Embedding"
 description: "Demonstrates how to **embed an MCP server** into an existing HTTP application alongside regular HTTP routes."
 weight: 17
-url: "/tutorials/embedding/"
+url: "/learn/embedding/"
 tutorial_number: 17
 source_dir: "17-embedding"
 ---

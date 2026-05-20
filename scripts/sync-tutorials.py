@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sync tutorial content from finemcp/finemcp/examples/ into Hugo content/tutorials/.
+Sync tutorial content from finemcp/finemcp/examples/ into Hugo content/learn/.
 
 Each numbered directory (NN-name/) in ../../finemcp/examples/ becomes a tutorial page.
 The README.md is copied with injected Hugo front matter.
@@ -14,7 +14,7 @@ import shutil
 import sys
 
 EXAMPLES_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "finemcp", "examples")
-TUTORIALS_DIR = os.path.join(os.path.dirname(__file__), "..", "content", "tutorials")
+TUTORIALS_DIR = os.path.join(os.path.dirname(__file__), "..", "content", "learn")
 
 # Map folder name (after stripping NN-) to human-readable title override.
 # If not here, the title is taken from the first # heading in the README.
@@ -80,7 +80,7 @@ def sync():
     for weight, dirname in enumerate(dirs, start=1):
         readme_path = os.path.join(EXAMPLES_DIR, dirname, "README.md")
         slug = slugify(dirname)
-        url = f"/tutorials/{slug}/"
+        url = f"/learn/{slug}/"
 
         with open(readme_path, "r", encoding="utf-8") as f:
             content = f.read()
@@ -103,7 +103,7 @@ source_dir: "{dirname}"
             f.write(front_matter)
             f.write(body)
 
-        print(f"  {dirname:25s} -> tutorials/{slug}.md  ({url})")
+        print(f"  {dirname:25s} -> learn/{slug}.md  ({url})")
 
     print(f"\nSynced {len(dirs)} tutorials.")
 

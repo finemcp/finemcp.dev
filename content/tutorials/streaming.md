@@ -2,7 +2,7 @@
 title: "Streaming"
 description: "Demonstrates how a tool can stream multiple content fragments back to the client before returning the final result."
 weight: 3
-url: "/tutorials/streaming/"
+url: "/learn/streaming/"
 tutorial_number: 3
 source_dir: "03-streaming"
 ---

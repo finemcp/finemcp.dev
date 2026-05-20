@@ -2,7 +2,7 @@
 title: "Roots"
 description: "Demonstrates registering **root URIs** that define the content boundaries visible to the server."
 weight: 7
-url: "/tutorials/roots/"
+url: "/learn/roots/"
 tutorial_number: 7
 source_dir: "07-roots"
 ---

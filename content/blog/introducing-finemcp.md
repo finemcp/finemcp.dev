@@ -57,6 +57,6 @@ FineMCP is in public beta. The core API is stable enough to build on. We're ship
 If you're building anything with MCP and Go, we'd love to have you try it and tell us what's broken.
 
 → [Get started](/docs/getting-started/)  
-→ [Browse tutorials](/tutorials/)  
+→ [Browse tutorials](/learn/)  
 → [Star us on GitHub](https://github.com/finemcp/finemcp)
 

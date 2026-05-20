@@ -2,7 +2,7 @@
 title: "Middleware"
 description: "Demonstrates 16 middleware types that wrap tool handlers with cross-cutting concerns."
 weight: 13
-url: "/tutorials/middleware/"
+url: "/learn/middleware/"
 tutorial_number: 13
 source_dir: "13-middleware"
 ---

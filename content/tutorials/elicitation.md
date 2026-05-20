@@ -2,7 +2,7 @@
 title: "Elicitation"
 description: "Demonstrates the MCP elicitation API for **server-initiated user prompts** — where the server asks the client to collect input from the user."
 weight: 8
-url: "/tutorials/elicitation/"
+url: "/learn/elicitation/"
 tutorial_number: 8
 source_dir: "08-elicitation"
 ---

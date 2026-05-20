@@ -2,7 +2,7 @@
 title: "Tools"
 description: "Demonstrates all the ways to create and configure tools in FineMCP."
 weight: 2
-url: "/tutorials/tools/"
+url: "/learn/tools/"
 tutorial_number: 2
 source_dir: "02-tools"
 ---
