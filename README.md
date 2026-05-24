@@ -1,4 +1,4 @@
-# finemcp/website
+# finemcp/finemcp.dev
 
 Source for [finemcp.dev](https://finemcp.dev) — the Hugo static site for the FineMCP project.
 
@@ -34,7 +34,7 @@ The website expects `finemcp/finemcp` to be checked out **one level up** (as a s
 ```
 workspace/
 ├── finemcp/    ← github.com/finemcp/finemcp  (docs + examples live here)
-└── web/        ← github.com/finemcp/website  (this repo)
+└── web/        ← github.com/finemcp/finemcp.dev  (this repo)
 ```
 
 ### Setup
@@ -42,7 +42,7 @@ workspace/
 ```bash
 # Clone both repos side-by-side
 git clone https://github.com/finemcp/finemcp.git path/to/workspace/finemcp
-git clone https://github.com/finemcp/website.git path/to/workspace/web
+git clone https://github.com/finemcp/finemcp.dev.git path/to/workspace/web
 
 cd path/to/workspace/web
 
